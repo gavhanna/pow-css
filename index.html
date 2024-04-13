@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pow CSS Boilerpate DEMO</title>
+        <link rel="stylesheet" href="pow-reset.css" />
+        <link rel="stylesheet" href="pow-boilerplate.css" />
+        <link rel="stylesheet" href="demo-site-styles.css" />
+    </head>
+    <body>
+        <header class="primary-header pow-content-grid">
+            <div class="primary-header__layout">
+                LOGO
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section style="text-align: center;padding-block:2rem; position:sticky;top:0;background:white;">
+            
+            <label for="max-width-slider">Content Width</label>
+            <input
+                style="width: 400px; max-width:100%"
+                type="range"
+                id="max-width-slider"
+                name="max-width-slider"
+                min="900"
+                max="2000"
+                value="1200"
+            />
+            <output for="max-width-slider">1200px</output>
+            <script>
+                (() => {
+                    const slider = document.getElementById("max-width-slider");
+                    const output = document.querySelector("output[for=max-width-slider]");
+                    slider.addEventListener("input", (e) => {
+                        document.documentElement.style.setProperty(
+                            "--pow-content-max-width",
+                            `${e.target.value}px`
+                        );
+                        output.value = e.target.value + "px";
+                    });
+                })()
+            </script>
+            <br>
+            <label for="max-breakout-slider">Breakout Width</label>
+            <input
+                style="width: 400px; max-width:100%"
+                type="range"
+                id="max-breakout-slider"
+                name="max-breakout-slider"
+                min="900"
+                max="2000"
+                value="1440"
+            />
+            <output for="max-breakout-slider">1440px</output>
+            <script>
+                const slider = document.getElementById("max-breakout-slider");
+                const output = document.querySelector("output[for=max-breakout-slider]");
+                slider.addEventListener("input", (e) => {
+                    document.documentElement.style.setProperty(
+                        "--pow-breakout-max-width",
+                        `${e.target.value}px`
+                    );
+                    output.value = e.target.value + "px";
+                });
+            </script>
+        </section>
+        <section>
+        </section>
+        <main class="pow-flow pow-content-grid">
+            <h1 class="site-title">Pow CSS Boilerplate</h1>
+            <h2>Regular Paragraph Text</h2>
+            <p>
+                It can be useful to have a system in place that's easy to go
+                full-width, or have a "pow-breakout" section for calls to action
+                or blockquotes, or other things you want to call attention to.
+            </p>
+            <p class="pow-breakout">
+                Any content can be set to "breakout" of the regular max width of
+                the page content, but not reach the edges of the screen. This is
+                useful for calls to action, or blockquotes, or other things you
+                want to call attention to.
+            </p>
+            <p>
+                Any HTML is allowed in the breakout sections, as we'll see
+                below.
+            </p>
+
+            <hr />
+
+            <h2>Breakout Left/Right Only</h2>
+            <p class="pow-breakout-left bg-primary call-to-action">
+                This is a pow-breakout section, but it's aligned to the left,
+                instead of the right. It's also a bit wider than the default,
+                and has a different background-color.
+            </p>
+
+            <p
+                class="pow-breakout-right bg-primary call-to-action"
+                style="text-align: right"
+            >
+                This is a pow-breakout section, but it's aligned to the right,
+                instead of the left. It's also a bit wider than the default, and
+                has a different background-color. Text is right aligned just to
+                empahsise the positioning.
+            </p>
+
+            <hr />
+
+            <section class="pow-with-sidebar pow-section-padding pow-breakout">
+                <div class="pow-flow">
+                    <h2>Sidebar Example</h2>
+                    <p>
+                        This is a breakout section with an added sidebar to the
+                        right of the content. It is fully responsive, without
+                        using media or container queries!
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Culpa accusamus quidem dolore et ex consequatur,
+                        ducimus nemo adipisci libero quaerat dolor sequi omnis
+                        neque totam vero explicabo numquam consectetur quisquam.
+                    </p>
+
+                    <div class="pow-with-sidebar">
+                        <div>
+                            <h3>Nested Sidebar</h3>
+                            <p>
+                                A section with a sidebar can even have a sidebar
+                                inside it! Due to the responsiveness being
+                                attached to the parent, this will becomes
+                                stacked at a larger viewport width than its
+                                container parent's sidebar.
+                            </p>
+                        </div>
+
+                        <div class="sidebar">
+                            A sidebar in a sidebar section!
+                        </div>
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <h3>Hey</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Maiores aliquam ex earum aliquid rem numquam nulla
+                        dicta delectus minus, architecto ipsa dolor rerum,
+                        tenetur culpa, maxime quis. Odio, pariatur impedit!
+                    </p>
+                </aside>
+            </section>
+
+            <section class="full-width bg-primary pow-section-padding pow-flow">
+                <h2>This section has a different background-color</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quibusdam voluptates vitae reiciendis corporis molestias
+                    aspernatur vero eaque obcaecati neque dolores veritatis
+                    repudiandae voluptas consectetur voluptatum nobis maiores
+                    doloremque, nostrum deleniti!
+                </p>
+                <p>
+                    Aspernatur, dignissimos. Quaerat corporis, itaque porro
+                    dolore ea a placeat molestiae nihil voluptatem veniam
+                    facere, corrupti in vel, voluptates enim soluta sint
+                    dolores? Quaerat laboriosam iusto voluptatem accusantium ex
+                    alias?
+                </p>
+            </section>
+
+            <h2>Back to normal</h2>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Architecto nam at praesentium cumque rem molestias earum officia
+                neque nemo sunt laboriosam vero eum optio, saepe dolorem
+                exercitationem quod asperiores iste?
+            </p>
+            <p class="pow-breakout call-to-action">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+                vero animi illum. Nam, maiores deleniti? Eos saepe consectetur
+                ea esse iure culpa reprehenderit, dicta recusandae hic natus,
+                corporis doloremque quasi.
+            </p>
+            <p>
+                Error nulla doloribus ex, eius voluptates saepe, in quae ea
+                nesciunt rem possimus obcaecati consequuntur deleniti. Tempore
+                deleniti deserunt harum, distinctio, culpa atque numquam ducimus
+                repellat fugit iusto eveniet velit.
+            </p>
+
+            <section
+                class="full-width bg-primary pow-section-padding pow-flow pow-content-grid"
+                style="background-image: url('https://unsplash.it/1600/400')"
+            >
+                <h2>This section has a full-bleed background image and text</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quibusdam voluptates vitae reiciendis corporis molestias
+                    aspernatur vero eaque obcaecati neque dolores veritatis
+                    repudiandae voluptas consectetur voluptatum nobis maiores
+                    doloremque, nostrum deleniti!
+                </p>
+                <p class="pow-breakout">
+                    Aspernatur, dignissimos. Quaerat corporis, itaque porro
+                    dolore ea a placeat molestiae nihil voluptatem veniam
+                    facere, corrupti in vel, voluptates enim soluta sint
+                    dolores? Quaerat laboriosam iusto voluptatem accusantium ex
+                    alias?
+                </p>
+            </section>
+
+            <h3>Images as full-bleed works too</h3>
+            <img class="full-width" src="https://unsplash.it/1440/400" alt="" />
+
+            <p>
+                Exercitationem dolorum animi at autem tempore omnis, dolorem
+                saepe sint totam architecto, vitae cum doloribus illo?
+                Laudantium laboriosam saepe eligendi ipsam corrupti molestias
+                expedita tempora eos minima, facere, eius dicta.
+            </p>
+            <p>
+                Magnam eius beatae similique officiis quaerat. Natus est dicta
+                temporibus a. Aut mollitia magnam quo. Sequi repellendus
+                voluptas quia suscipit autem iste! Accusamus, delectus beatae
+                inventore obcaecati ut totam ab.
+            </p>
+
+            <hr />
+            <h2>Font Sizes</h2>
+            <p>Font sizes can be "clamped" to sit between certain values depending on the screen size.</p>
+            <p>In these examples, the font sizes have a maximum and minimum value, and will adjust based on the screen size.</p>
+            <section>
+                <p class="font-examples" id="font-size-300" style="display:flex; justify-content:space-between; flex-wrap:wrap; font-size: var(--pow-fs-300)">Font size 300: <b id="font-size-300"></b></p>
+                <p class="font-examples" id="font-size-400" style="display:flex; justify-content:space-between; flex-wrap:wrap; font-size: var(--pow-fs-400)">Font size 400: <b id="font-size-400"></b></p>
+                <p class="font-examples" id="font-size-500" style="display:flex; justify-content:space-between; flex-wrap:wrap; font-size: var(--pow-fs-500)">Font size 500: <b id="font-size-500"></b></p>
+                <p class="font-examples" id="font-size-600" style="display:flex; justify-content:space-between; flex-wrap:wrap; font-size: var(--pow-fs-600)">Font size 600: <b id="font-size-600"></b></p>
+                <p class="font-examples" id="font-size-700" style="display:flex; justify-content:space-between; flex-wrap:wrap; font-size: var(--pow-fs-700)">Font size 700: <b id="font-size-700"></b></p>
+                <p class="font-examples" id="font-size-800" style="display:flex; justify-content:space-between; flex-wrap:wrap; font-size: var(--pow-fs-800)">Font size 800: <b id="font-size-800"></b></p>
+                <p class="font-examples" id="font-size-900" style="display:flex; justify-content:space-between; flex-wrap:wrap; font-size: var(--pow-fs-900)">Font size 900: <b id="font-size-900"></b></p>
+                <script>
+                    (() => {
+                        const fontExamples = document.querySelectorAll(".font-examples");
+                        fontExamples.forEach((example) => {
+                            const fontSize = example;
+                            fontSize.querySelector('b').textContent = window.getComputedStyle(example).fontSize;
+                            window.addEventListener("resize", () => {
+                                fontSize.querySelector('b').textContent = window.getComputedStyle(example).fontSize;
+                            });
+                        });
+                    })();
+
+                </script>
+
+            </section>
+
+            <hr />
+
+            <h2>Color Palette</h2>
+            <p>
+                The color palette is defined using HSL (Hue, Saturation,
+                Lightness) values. This makes it easier to manage color contrast
+                and create color variations. The color palette is defined using
+                a 300, 400, and 500 value for each color. The 300 value is the
+                lightest, the 500 value is the default, and the 400 value is the
+                darkest.
+            </p>
+            <p>
+                Colours can be added or removed as needed, e.g. 600, 700
+                (darker) or 200, 100 (lighter).
+            </p>
+
+            <h3>Primary Color</h3>
+            <div>
+                <label for="primary-hue-slider">Primary Hue</label>
+                <input
+                    type="range"
+                    id="primary-hue-slider"
+                    name="primary-hue-slider"
+                    min="0"
+                    max="360"
+                    value="200"
+                />
+                <output for="primary-hue-slider">200</output>
+                <script>
+                    (() => {
+                        const slider = document.getElementById("primary-hue-slider");
+                        const output = document.querySelector("output[for=primary-hue-slider]");
+                        slider.addEventListener("input", (e) => {
+                            document.documentElement.style.setProperty(
+                                "--pow-clr-primary-hue",
+                                `${e.target.value}`
+                            );
+                            output.value = e.target.value;
+                        });
+                    })();
+                </script>
+            </div>
+            <div>
+                <label for="primary-saturation-slider">Primary Saturation</label>
+                <input
+                    type="range"
+                    id="primary-saturation-slider"
+                    name="primary-saturation-slider"
+                    min="0"
+                    max="100"
+                    value="75"
+                />
+                <output for="primary-saturation-slider">75%</output>
+                <script>
+                    (() => {
+                        const slider = document.getElementById("primary-saturation-slider");
+                        const output = document.querySelector("output[for=primary-saturation-slider]");
+                        slider.addEventListener("input", (e) => {
+                            document.documentElement.style.setProperty(
+                                "--pow-clr-primary-saturation",
+                                `${e.target.value}%`
+                            );
+                            output.value = e.target.value + "%";
+                        });
+                    })();
+                </script>
+            </div>
+            <section class="color-palette pow-columns pow-section-padding">
+                <div class="pow-flow text-center">
+                    <svg
+                        class="icon"
+                        width="100"
+                        height="100"
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle
+                            cx="50"
+                            cy="50"
+                            r="50"
+                            fill="var(--pow-clr-primary-300)"
+                        />
+                    </svg>
+                    <h3>Primary 300</h3>
+                    <div>
+                        <label for="primary-lightness-300">Lightness</label>
+                        <input
+                            type="range"
+                            id="primary-lightness-300"
+                            name="primary-lightness-300"
+                            min="0"
+                            max="100"
+                            value="55"
+                        />
+                        <output for="primary-lightness-300">55%</output>
+                        <script>
+                            (() => {
+                                const slider = document.getElementById("primary-lightness-300");
+                                const output = document.querySelector("output[for=primary-lightness-300]");
+                                slider.addEventListener("input", (e) => {
+                                    document.documentElement.style.setProperty(
+                                        // --pow-clr-primary-300: hsl(var(--pow-clr-primary-hue), var(--pow-clr-primary-saturation), 55%);
+                                        "--pow-clr-primary-300",
+                                        `hsl(var(--pow-clr-primary-hue), var(--pow-clr-primary-saturation), ${e.target.value}%)`
+                                    );
+                                    output.value = e.target.value + "%";
+                                });
+                            })();
+                        </script>
+                    </div>
+                </div>
+                <div class="pow-flow text-center">
+                    <svg
+                        class="icon"
+                        width="100"
+                        height="100"
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle
+                            cx="50"
+                            cy="50"
+                            r="50"
+                            fill="var(--pow-clr-primary-400)"
+                        />
+                    </svg>
+                    <h3>Primary 400</h3>
+                    <div>
+                        <label for="primary-lightness-400">Lightness</label>
+                        <input
+                            type="range"
+                            id="primary-lightness-400"
+                            name="primary-lightness-400"
+                            min="0"
+                            max="100"
+                            value="40"
+                        />
+                        <output for="primary-lightness-400">40%</output>
+                        <script>
+                            (() => {
+                                const slider = document.getElementById("primary-lightness-400");
+                                const output = document.querySelector("output[for=primary-lightness-400]");
+                                slider.addEventListener("input", (e) => {
+                                    document.documentElement.style.setProperty(
+                                        "--pow-clr-primary-400",
+                                        `hsl(var(--pow-clr-primary-hue), var(--pow-clr-primary-saturation), ${e.target.value}%)`
+                                    );
+                                    output.value = e.target.value + "%";
+                                });
+                            })();
+                        </script>
+                    </div>
+                </div>
+                <div class="pow-flow text-center">
+                    <svg
+                        class="icon"
+                        width="100"
+                        height="100"
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle
+                            cx="50"
+                            cy="50"
+                            r="50"
+                            fill="var(--pow-clr-primary-500)"
+                        />
+                    </svg>
+                    <h3>Primary 500</h3>
+                    <div>
+                        <label for="primary-lightness-500">Lightness</label>
+                        <input
+                            type="range"
+                            id="primary-lightness-500"
+                            name="primary-lightness-500"
+                            min="0"
+                            max="100"
+                            value="25"
+                        />
+                        <output for="primary-lightness-500">25%</output>
+                        <script>
+                            (() => {
+                                const slider = document.getElementById("primary-lightness-500");
+                                const output = document.querySelector("output[for=primary-lightness-500]");
+                                slider.addEventListener("input", (e) => {
+                                    document.documentElement.style.setProperty(
+                                        "--pow-clr-primary-500",
+                                        `hsl(var(--pow-clr-primary-hue), var(--pow-clr-primary-saturation), ${e.target.value}%)`
+                                    );
+                                    output.value = e.target.value + "%";
+                                });
+                            })();
+                        </script>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section class="pow-section-padding">
+                <h3>Secondary Colour</h3>
+                <div>
+                    <label for="secondary-hue-slider">Secondary Hue</label>
+                    <input
+                        type="range"
+                        id="secondary-hue-slider"
+                        name="secondary-hue-slider"
+                        min="0"
+                        max="360"
+                        value="269"
+                    />
+                    <output for="secondary-hue-slider">269</output>
+                    <script>
+                        (() => {
+                            const slider = document.getElementById("secondary-hue-slider");
+                            const output = document.querySelector("output[for=secondary-hue-slider]");
+                            slider.addEventListener("input", (e) => {
+                                document.documentElement.style.setProperty(
+                                    "--pow-clr-secondary-hue",
+                                    `${e.target.value}`
+                                );
+                                output.value = e.target.value;
+                            });
+                        })();
+                    </script>
+                </div>
+                <div>
+                    <label for="secondary-saturation-slider">Secondary Saturation</label>
+                    <input
+                        type="range"
+                        id="secondary-saturation-slider"
+                        name="secondary-saturation-slider"
+                        min="0"
+                        max="100"
+                        value="75"
+                    />
+                    <output for="secondary-saturation-slider">75%</output>
+                    <script>
+                        (() => {
+                            const slider = document.getElementById("secondary-saturation-slider");
+                            const output = document.querySelector("output[for=secondary-saturation-slider]");
+                            slider.addEventListener("input", (e) => {
+                                document.documentElement.style.setProperty(
+                                    "--pow-clr-secondary-saturation",
+                                    `${e.target.value}%`
+                                );
+                                output.value = e.target.value + "%";
+                            });
+                        })();
+                    </script>
+                </div>
+                <div class="color-palette pow-columns pow-section-padding">
+                    <div class="pow-flow text-center">
+                        <svg
+                            class="icon"
+                            width="100"
+                            height="100"
+                            viewBox="0 0 100 100"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <circle
+                                cx="50"
+                                cy="50"
+                                r="50"
+                                fill="var(--pow-clr-secondary-300)"
+                            />
+                        </svg>
+                        <h3>Secondary 300</h3>
+                        <div>
+                            <label for="secondary-lightness-300">Lightness</label>
+                            <input
+                                type="range"
+                                id="secondary-lightness-300"
+                                name="secondary-lightness-300"
+                                min="0"
+                                max="100"
+                                value="55"
+                            />
+                            <output for="secondary-lightness-300">55%</output>
+                            <script>
+                                (() => {
+                                    const slider = document.getElementById("secondary-lightness-300");
+                                    const output = document.querySelector("output[for=secondary-lightness-300]");
+                                    slider.addEventListener("input", (e) => {
+                                        document.documentElement.style.setProperty(
+                                            "--pow-clr-secondary-300",
+                                            `hsl(var(--pow-clr-secondary-hue), var(--pow-clr-secondary-saturation), ${e.target.value}%)`
+                                        );
+                                        output.value = e.target.value + "%";
+                                    });
+                                })();
+                            </script>
+                        </div>
+                    </div>
+                    <div class="pow-flow text-center">
+                        <svg
+                            class="icon"
+                            width="100"
+                            height="100"
+                            viewBox="0 0 100 100"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <circle
+                                cx="50"
+                                cy="50"
+                                r="50"
+                                fill="var(--pow-clr-secondary-400)"
+                            />
+                        </svg>
+                        <h3>Secondary 400</h3>
+                        <div>
+                            <label for="secondary-lightness-400">Lightness</label>
+                            <input
+                                type="range"
+                                id="secondary-lightness-400"
+                                name="secondary-lightness-400"
+                                min="0"
+                                max="100"
+                                value="40"
+                            />
+                            <output for="secondary-lightness-400">40%</output>
+                            <script>
+                                (() => {
+                                    const slider = document.getElementById("secondary-lightness-400");
+                                    const output = document.querySelector("output[for=secondary-lightness-400]");
+                                    slider.addEventListener("input", (e) => {
+                                        document.documentElement.style.setProperty(
+                                            "--pow-clr-secondary-400",
+                                            `hsl(var(--pow-clr-secondary-hue), var(--pow-clr-secondary-saturation), ${e.target.value}%)`
+                                        );
+                                        output.value = e.target.value + "%";
+                                    });
+                                })();
+                            </script>
+                        </div>
+
+                    </div>
+                    <div class="pow-flow text-center">
+                        <svg
+                            class="icon"
+                            width="100"
+                            height="100"
+                            viewBox="0 0 100 100"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <circle
+                                cx="50"
+                                cy="50"
+                                r="50"
+                                fill="var(--pow-clr-secondary-500)"
+                            />
+                        </svg>
+                        <h3>Secondary 500</h3>
+                        <div>
+                            <label for="secondary-lightness-500">Lightness</label>
+                            <input
+                                type="range"
+                                id="secondary-lightness-500"
+                                name="secondary-lightness-500"
+                                min="0"
+                                max="100"
+                                value="25"
+                            />
+                            <output for="secondary-lightness-500">25%</output>
+                            <script>
+                                (() => {
+                                    const slider = document.getElementById("secondary-lightness-500");
+                                    const output = document.querySelector("output[for=secondary-lightness-500]");
+                                    slider.addEventListener("input", (e) => {
+                                        document.documentElement.style.setProperty(
+                                            "--pow-clr-secondary-500",
+                                            `hsl(var(--pow-clr-secondary-hue), var(--pow-clr-secondary-saturation), ${e.target.value}%)`
+                                        );
+                                        output.value = e.target.value + "%";
+                                    });
+                                })();
+                            </script>
+                        </div>
+                    </div>
+            </section>
+
+            <section>
+                <h3>Accent Colour</h3>
+                <div>
+                    <label for="accent-hue-slider">Accent Hue</label>
+                    <input
+                        type="range"
+                        id="accent-hue-slider"
+                        name="accent-hue-slider"
+                        min="0"
+                        max="360"
+                        value="50"
+                    />
+                    <output for="accent-hue-slider">50</output>
+                    <script>
+                        (() => {
+                            const slider = document.getElementById("accent-hue-slider");
+                            const output = document.querySelector("output[for=accent-hue-slider]");
+                            slider.addEventListener("input", (e) => {
+                                document.documentElement.style.setProperty(
+                                    "--pow-clr-accent-hue",
+                                    `${e.target.value}`
+                                );
+                                output.value = e.target.value;
+                            });
+                        })();
+                    </script>
+                </div>
+                <div>
+                    <label for="accent-saturation-slider">Accent Saturation</label>
+                    <input
+                        type="range"
+                        id="accent-saturation-slider"
+                        name="accent-saturation-slider"
+                        min="0"
+                        max="100"
+                        value="75"
+                    />
+                    <output for="accent-saturation-slider">75%</output>
+                    <script>
+                        (() => {
+                            const slider = document.getElementById("accent-saturation-slider");
+                            const output = document.querySelector("output[for=accent-saturation-slider]");
+                            slider.addEventListener("input", (e) => {
+                                document.documentElement.style.setProperty(
+                                    "--pow-clr-accent-saturation",
+                                    `${e.target.value}%`
+                                );
+                                output.value = e.target.value + "%";
+                            });
+                        })();
+                    </script>
+                </div>
+                <div class="color-palette pow-columns pow-section-padding">
+                    <div class="pow-flow text-center">
+                        <svg
+                            class="icon"
+                            width="100"
+                            height="100"
+                            viewBox="0 0 100 100"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <circle
+                                cx="50"
+                                cy="50"
+                                r="50"
+                                fill="var(--pow-clr-accent-300)"
+                            />
+                        </svg>
+                        <h3>Accent 300</h3>
+                        <div>
+                            <label for="accent-lightness-300">Lightness</label>
+                            <input
+                                type="range"
+                                id="accent-lightness-300"
+                                name="accent-lightness-300"
+                                min="0"
+                                max="100"
+                                value="65"
+                            />
+                            <output for="accent-lightness-300">65%</output>
+                            <script>
+                                (() => {
+                                    const slider = document.getElementById("accent-lightness-300");
+                                    const output = document.querySelector("output[for=accent-lightness-300]");
+                                    slider.addEventListener("input", (e) => {
+                                        document.documentElement.style.setProperty(
+                                            "--pow-clr-accent-300",
+                                            `hsl(var(--pow-clr-accent-hue), var(--pow-clr-accent-saturation), ${e.target.value}%)`
+                                        );
+                                        output.value = e.target.value + "%";
+                                    });
+                                })();
+                            </script>
+                        </div>
+                    </div>
+                    <div class="pow-flow text-center">
+                        <svg
+                            class="icon"
+                            width="100"
+                            height="100"
+                            viewBox="0 0 100 100"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <circle
+                                cx="50"
+                                cy="50"
+                                r="50"
+                                fill="var(--pow-clr-accent-400)"
+                            />
+                        </svg>
+                        <h3>Accent 400</h3>
+                        <div>
+                            <label for="accent-lightness-400">Lightness</label>
+                            <input
+                                type="range"
+                                id="accent-lightness-400"
+                                name="accent-lightness-400"
+                                min="0"
+                                max="100"
+                                value="50"
+                            />
+                            <output for="accent-lightness-400">50%</output>
+                            <script>
+                                (() => {
+                                    const slider = document.getElementById("accent-lightness-400");
+                                    const output = document.querySelector("output[for=accent-lightness-400]");
+                                    slider.addEventListener("input", (e) => {
+                                        document.documentElement.style.setProperty(
+                                            "--pow-clr-accent-400",
+                                            `hsl(var(--pow-clr-accent-hue), var(--pow-clr-accent-saturation), ${e.target.value}%)`
+                                        );
+                                        output.value = e.target.value + "%";
+                                    });
+                                })();
+                            </script>
+                        </div>
+                    </div>
+                    <div class="pow-flow text-center">
+                        <svg
+                            class="icon"
+                            width="100"
+                            height="100"
+                            viewBox="0 0 100 100"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <circle
+                                cx="50"
+                                cy="50"
+                                r="50"
+                                fill="var(--pow-clr-accent-500)"
+                            />
+                        </svg>
+                        <h3>Accent 500</h3>
+                        <div>
+                            <label for="accent-lightness-500">Lightness</label>
+                            <input
+                                type="range"
+                                id="accent-lightness-500"
+                                name="accent-lightness-500"
+                                min="0"
+                                max="100"
+                                value="35"
+                            />
+                            <output for="accent-lightness-500">35%</output>
+                            <script>
+                                (() => {
+                                    const slider = document.getElementById("accent-lightness-500");
+                                    const output = document.querySelector("output[for=accent-lightness-500]");
+                                    slider.addEventListener("input", (e) => {
+                                        document.documentElement.style.setProperty(
+                                            "--pow-clr-accent-500",
+                                            `hsl(var(--pow-clr-accent-hue), var(--pow-clr-accent-saturation), ${e.target.value}%)`
+                                        );
+                                        output.value = e.target.value + "%";
+                                    });
+                                })();
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <hr />
+
+            <h2>Columns</h2>
+            <p>Here are some responsive content columns</p>
+            <div
+                class="pow-columns text-center pow-breakout pow-section-padding"
+            >
+                <div class="pow-flow">
+                    <svg
+                        class="icon"
+                        width="100"
+                        height="100"
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle cx="50" cy="50" r="50" fill="var(--pow-clr-secondary-500)" />
+                    </svg>
+                    <h3>Column 1</h3>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Iste fugit eius optio earum laborum voluptate
+                        architecto repellendus fugiat dicta laudantium non
+                        labore obcaecati, sunt necessitatibus. Eveniet
+                        necessitatibus velit rem tempora?
+                    </p>
+                </div>
+                <div class="pow-flow">
+                    <svg
+                        class="icon"
+                        width="100"
+                        height="100"
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <rect width="100" height="100" fill="var(--pow-clr-secondary-500)" />
+                    </svg>
+                    <h3>Column 1</h3>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Iste fugit eius optio earum laborum voluptate
+                        architecto repellendus fugiat dicta laudantium non
+                        labore obcaecati, sunt necessitatibus. Eveniet
+                        necessitatibus velit rem tempora?
+                    </p>
+                </div>
+                <div class="pow-flow">
+                    <svg
+                        class="icon"
+                        width="100"
+                        height="100"
+                        viewBox="0 0 100 100"
+                        fill="var(--pow-clr-secondary-500)"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M50 0L100 100H0L50 0Z" />
+                    </svg>
+                    <h3>Column 1</h3>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Iste fugit eius optio earum laborum voluptate
+                        architecto repellendus fugiat dicta laudantium non
+                        labore obcaecati, sunt necessitatibus. Eveniet
+                        necessitatibus velit rem tempora?
+                    </p>
+                </div>
+            </div>
+
+            <hr />
+
+            <h2>Easy Responsive Image Grid</h2>
+            <div class="pow-columns img-grid">
+                <img src="https://unsplash.it/500/500" alt="" />
+                <img src="https://unsplash.it/501/501" alt="" />
+                <img src="https://unsplash.it/502/502" alt="" />
+                <img src="https://unsplash.it/503/503" alt="" />
+                <img src="https://unsplash.it/504/504" alt="" />
+                <img src="https://unsplash.it/505/505" alt="" />
+                <img src="https://unsplash.it/506/506" alt="" />
+                <img src="https://unsplash.it/507/507" alt="" />
+                <img src="https://unsplash.it/508/508" alt="" />
+                <img src="https://unsplash.it/509/509" alt="" />
+                <img src="https://unsplash.it/510/510" alt="" />
+                <img src="https://unsplash.it/511/511" alt="" />
+            </div>
+            <p>
+                This set of images is responsive, but locked to rows of
+                <i>n</i> items per row until stacking for mobile. No media or
+                container queries necessary, only grid.
+            </p>
+
+            <hr />
+
+            <h2>Fancy Staggered Grid with Breakouts</h2>
+            <div class="pow-columns img-grid">
+                <img src="https://unsplash.it/500/500" alt="" />
+                <img src="https://unsplash.it/501/501" alt="" />
+                <img src="https://unsplash.it/502/502" alt="" />
+                <img src="https://unsplash.it/503/503" alt="" />
+                <img src="https://unsplash.it/502/502" alt="" />
+                <img src="https://unsplash.it/503/503" alt="" />
+            </div>
+            <div class="pow-columns img-grid pow-breakout">
+                <img src="https://unsplash.it/504/504" alt="" />
+                <img src="https://unsplash.it/505/505" alt="" />
+                <img src="https://unsplash.it/506/506" alt="" />
+                <img src="https://unsplash.it/507/507" alt="" />
+                <img src="https://unsplash.it/506/507" alt="" />
+                <img src="https://unsplash.it/507/506" alt="" />
+            </div>
+            <div class="pow-columns img-grid">
+                <img src="https://unsplash.it/508/508" alt="" />
+                <img src="https://unsplash.it/509/509" alt="" />
+                <img src="https://unsplash.it/510/510" alt="" />
+                <img src="https://unsplash.it/511/511" alt="" />
+                <img src="https://unsplash.it/510/512" alt="" />
+                <img src="https://unsplash.it/511/510" alt="" />
+            </div>
+            <div class="pow-columns img-grid pow-breakout">
+                <img src="https://unsplash.it/514/514" alt="" />
+                <img src="https://unsplash.it/515/515" alt="" />
+                <img src="https://unsplash.it/516/516" alt="" />
+                <img src="https://unsplash.it/517/517" alt="" />
+                <img src="https://unsplash.it/516/517" alt="" />
+                <img src="https://unsplash.it/517/516" alt="" />
+            </div>
+            <div class="pow-columns img-grid">
+                <img src="https://unsplash.it/500/500" alt="" />
+                <img src="https://unsplash.it/501/501" alt="" />
+                <img src="https://unsplash.it/502/502" alt="" />
+                <img src="https://unsplash.it/503/503" alt="" />
+                <img src="https://unsplash.it/502/502" alt="" />
+                <img src="https://unsplash.it/503/503" alt="" />
+            </div>
+
+            <section class="bg-primary full-width pow-section-padding">
+                <h3>Footer</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </section>
+        </main>
+    </body>
+</html>

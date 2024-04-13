@@ -1,0 +1,175 @@
+/*
+ *   pow-boilerplate.css
+ *   A simple CSS boilerplate for modern web development.
+    *
+    *   We use the :root pseudo-class to define global variables for our design system.
+ */
+
+:root {
+    --pow-color-scheme: light;
+
+    --pow-ff-sans-serif: ui-sans-serif, system-ui, sans-serif;
+    --pow-ff-serif: system, Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+    --pow-ff-monospace: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+    /* Font Sizes
+    * The font-size property is set using the clamp() function to create a fluid type scale.
+    * The clamp() function is used to set a minimum and maximum font-size, with a value that scales based on the viewport width.
+
+    * Change these to rem values if you prefer a fixed type scale.
+    *
+    * We use the same value scale as the font-weight property, with 300 being the lightest and 900 being the boldest.
+    * This should make it easier to manage than "small", "medium", "large", etc.
+    * With 400 being the default font-size (typically 16px)
+    */
+    --pow-fs-200: clamp(0.75rem, calc(0.75rem + 0.08vw), 0.8rem);
+    --pow-fs-300: clamp(0.94rem, calc(0.92rem + 0.08vw), 0.98rem);
+    --pow-fs-400: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
+    --pow-fs-500: clamp(1.35rem, calc(1.21rem + 0.69vw), 1.75rem);
+    --pow-fs-600: clamp(1.62rem, calc(1.37rem + 1.24vw), 2.33rem);
+    --pow-fs-700: clamp(1.94rem, calc(1.54rem + 2.03vw), 3.11rem);
+    --pow-fs-800: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
+    --pow-fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
+
+    --pow-clr-primary-300: hsl(219, 76%, 55%);
+    --pow-clr-primary-400: hsl(219, 76%, 40%);
+    --pow-clr-primary-500: hsl(219, 76%, 25%);
+    --pow-clr-secondary-300: hsl(269, 75%, 55%);
+    --pow-clr-secondary-400: hsl(269, 75%, 40%);
+    --pow-clr-secondary-500: hsl(269, 75%, 25%);
+    --pow-clr-accent-200: hsl(358, 85%, 80%);
+    --pow-clr-accent-300: hsl(358, 72%, 65%);
+    --pow-clr-accent-400: hsl(358, 72%, 50%);
+    --pow-clr-accent-500: hsl(358, 72%, 35%);
+
+    --pow-padding-inline: 1rem;
+    --pow-content-max-width: 960px;
+    --pow-breakout-max-width: 1200px;
+
+    --pow-flow-spacing: 1.5rem;
+    --pow-section-spacing: 2.5rem;
+
+    --pow-breakout-size: calc(
+        (var(--pow-breakout-max-width) - var(--pow-content-max-width)) / 2
+    );
+
+    --pow-p-max-width: 75ch; /*A value of 75ch is recommended for comfortable reading */
+}
+
+.pow-content-grid {
+    display: grid;
+    grid-template-columns:
+        [full-width-start left-side-start] minmax(var(--pow-padding-inline), 1fr)
+        [breakout-start breakout-left-start] minmax(0, var(--pow-breakout-size))
+        [content-start left-side-end breakout-right-start] min(
+            100% - (var(--pow-padding-inline) * 2),
+            var(--pow-content-max-width)
+        )
+        [content-end breakout-left-end]
+        minmax(0, var(--pow-breakout-size)) [breakout-end breakout-right-end right-side-start]
+        minmax(var(--pow-padding-inline), 1fr) [full-width-end right-side-end];
+
+    & > :not(.pow-breakout, .full-width),
+    .full-width > :not(.pow-breakout, .full-width) {
+        grid-column: content;
+    }
+
+    & > .pow-breakout {
+        grid-column: breakout;
+    }
+
+    .pow-breakout-left {
+        grid-column: breakout-left;
+    }
+
+    .pow-breakout-right {
+        grid-column: breakout-right;
+    }
+
+    .pow-left-side {
+        grid-column: left-side;
+    }
+
+    .pow-right-side {
+        grid-column: right-side;
+    }
+}
+
+.pow-content-grid > .full-width {
+    grid-column: full-width;
+
+    display: grid;
+    grid-template-columns: inherit;
+    background-position: center;
+    background-size: cover;
+}
+
+img.full-width {
+    width: 100%;
+    max-height: 45vh;
+    object-fit: cover;
+}
+
+.pow-visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.pow-flow > * + * {
+    margin-top: var(--pow-flow-spacing, 1em);
+}
+
+.pow-section-padding {
+    padding-block: var(--pow-section-spacing);
+}
+
+.pow-with-sidebar {
+    --main-min-width: 45ch;
+    --sidebar-size: 250px;
+    --gap: 2rem;
+  
+    display: flex;
+    gap: var(--gap);
+    flex-wrap: wrap;
+    
+    & > * {
+        flex-grow: 1;
+    }
+    
+    & > :first-child {
+        flex-grow: 999;
+        flex-basis: calc(
+            ((var(--main-min-width) - (100% - var(--sidebar-size) - var(--gap))) * 9999)
+        );
+    }
+    
+    & > :last-child {
+        flex-basis: var(--sidebar-size);
+    }
+}
+
+.pow-columns {
+    /* user setting (set preferences) */
+    --min-column-size: 300px;
+    --column-count: 3;
+    --column-gap: 2rem;
+    
+    /* calculations (do not edit) */
+    --breakpoint: calc(var(--min-column-size) * var(--column-count) + (var(--column-gap) * (var(--column-count) - 1)) );
+    --column-size: calc((100% / var(--column-count)) - var(--column-gap));
+    
+    display: grid;
+    gap: var(--column-gap);
+    
+    grid-template-columns: repeat(
+      auto-fit, 
+      minmax(
+        min(max(var(--column-size), (100% - var(--breakpoint)) * -999 ), 100%), 
+        1fr)
+      );
+}

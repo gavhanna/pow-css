@@ -1,0 +1,48 @@
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:where(img, picture, video) {
+    font-style: italic;
+    vertical-align: middle;
+    height: auto;
+    max-width: 100%;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+    text-wrap: balance;
+}
+
+:where(p, li) {
+    max-width: var(--pow-p-max-width, 65ch);
+    text-wrap: pretty;
+}
+
+:where(html) {
+    hanging-punctuation: first last;
+    color-scheme: var(--pow-color-scheme);
+}
+
+:where(body) {
+    margin: 0;
+    font-family: var(--pow-font-family);
+    font-size: var(--pow-fs-400);
+    min-height: 100svh;
+}
+
+:where(ol, ul) {
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :has(:target) {
+        scroll-padding-top: var(--pow-smooth-scroll-padding-top, 3rem);
+        scroll-behavior: smooth;
+    }
+}
